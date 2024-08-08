@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.14.0/swagger-ui.css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.14.0/swagger-ui-bundle.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.14.0/swagger-ui-standalone-preset.js"> </script>
+</head>
+<body>
+
+<div id="swagger-ui"></div>
+
+<script>
+  window.onload = function() {
+    // URL cruda de tu archivo YAML en GitHub
+    const specUrl = 'https://raw.githubusercontent.com/jairtorresarteaga/account-details-service/main/src/main/resources/static/API-Account_detail_service.yaml';
+
+    // Inicializa Swagger UI
+    const ui = SwaggerUIBundle({
+      url: specUrl,
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl
+      ],
+      layout: "StandaloneLayout"
+    });
+
+    window.ui = ui;
+  };
+</script>
+
+</body>
+</html>
